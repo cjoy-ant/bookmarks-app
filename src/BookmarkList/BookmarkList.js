@@ -4,9 +4,10 @@ import BookmarkItem from '../BookmarkItem/BookmarkItem';
 import './BookmarkList.css'
 
 class BookmarkList extends Component {
-  //static defaultProps = {
-  //  bookmarks: []
-  //};
+  static defaultProps = {
+    bookmarks: []
+  };
+  
   static contextType = BookmarksContext;
 
   render() {

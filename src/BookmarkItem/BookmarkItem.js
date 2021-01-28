@@ -8,6 +8,7 @@ function deleteBookmarkRequest(bookmarkId, callback) {
   fetch(config.API_ENDPOINT + `/${bookmarkId}`, {
     method: 'DELETE',
     headers: {
+      'content-type': 'application/json',
       'authorization': `bearer ${config.API_KEY}`
     }
   })
@@ -24,6 +25,7 @@ function deleteBookmarkRequest(bookmarkId, callback) {
     .then(data => {
       // call the callback when the request is successful
       // this is where the App component can remove it from state
+      console.log({ data })
       callback(bookmarkId)
     })
     .catch(error => {
@@ -33,7 +35,7 @@ function deleteBookmarkRequest(bookmarkId, callback) {
 
 export default function BookmarkItem(props) {
   return (
-    <BookmarksContext.Provider>
+    <BookmarksContext.Consumer>
       {(context) => (
         <li className='BookmarkItem'>
           <div className='BookmarkItem__row'>
@@ -54,7 +56,10 @@ export default function BookmarkItem(props) {
             <button
               className='BookmarkItem__description'
               onClick={() => {
-                deleteBookmarkRequest(props.id, context.deleteBookmark)
+                deleteBookmarkRequest(
+                  props.id, 
+                  context.deleteBookmark
+                )
               }}
               >
               Delete
@@ -62,7 +67,7 @@ export default function BookmarkItem(props) {
           </div>
         </li>
       )}
-    </BookmarksContext.Provider>
+    </BookmarksContext.Consumer>
   )
 }
 
