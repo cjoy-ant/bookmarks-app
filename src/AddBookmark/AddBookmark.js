@@ -9,9 +9,6 @@ const Required = () => (
 )
 
 class AddBookmark extends Component {
-  //static defaultProps = {
-  //  onAddBookmark: () => {}
-  //};
   static contextType = BookmarksContext;
 
   state = {
@@ -56,6 +53,7 @@ class AddBookmark extends Component {
         this.props.history.push('/')
       })
       .catch(error => {
+        console.log(error)
         this.setState({ error })
       })
   }
@@ -144,4 +142,4 @@ class AddBookmark extends Component {
   }
 }
 
-export default withRouter(AddBookmark);
+export default AddBookmark;
