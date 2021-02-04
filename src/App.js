@@ -5,9 +5,10 @@ import BookmarkList from './BookmarkList/BookmarkList';
 import BookmarksContext from './BookmarksContext';
 import Nav from './Nav/Nav';
 import config from './config';
+import Rating from './Rating/Rating';
 import './App.css';
 
-const bookmarks = [
+//const bookmarks = [
   // {
   //   id: 0,
   //   title: 'Google',
@@ -29,7 +30,7 @@ const bookmarks = [
   //   rating: '4',
   //   desc: 'brings together the world\'s largest community of developers.'
   // }
-];
+//];
 
 class App extends Component {
   state = {
@@ -100,6 +101,8 @@ class App extends Component {
               path='/'
               component={BookmarkList}
             />
+            <Rating />
+            <BookmarkList bookmarks={[{a:2, b:4}, {a:9, b:12}]}/>
           </div>
         </BookmarksContext.Provider>
       </main>
