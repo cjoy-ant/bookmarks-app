@@ -101,8 +101,6 @@ class App extends Component {
               path='/'
               component={BookmarkList}
             />
-            <Rating />
-            <BookmarkList bookmarks={[{a:2, b:4}, {a:9, b:12}]}/>
           </div>
         </BookmarksContext.Provider>
       </main>
